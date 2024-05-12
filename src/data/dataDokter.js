@@ -11,7 +11,7 @@ export const dataDoctor = [
   },
   {
     id: 2,
-    pict: "../images/hero3.jpg",
+    pict: "../images/dokter9.png",
     nama: "Dr.Lisna",
     spesialis: ["Dentist", "Pyschology", "Neurology"],
     kontak: "+62834593",

@@ -1,8 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { dataDoctor } from "../data/dataDokter";
 import { useEffect, useState } from "react";
 import Input from "../components/Form/Input";
 import Button from "../components/Form/Button";
+import { useDispatch } from "react-redux";
+import { getUserBiodata } from "../features/biodataSlice/biodataSlice";
 
 const styleBox = "w-full bg-white min-h-screen flex justify-between";
 
@@ -98,7 +100,11 @@ const BoxAside = ({ children }) => {
   );
 };
 
+// component doctor booking
+
 const DoctorBookingPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [profileDoctor, setProfileDoctor] = useState([]);
 
@@ -116,7 +122,11 @@ const DoctorBookingPage = () => {
     e.preventDefault();
     const jadwal = e.target.tanggal.value;
     const waktu = e.target.waktu.value;
+    const doctorName = profileDoctor[0].nama;
 
+    dispatch(getUserBiodata({ name: doctorName, date: jadwal, time: waktu }));
+
+    navigate("/biodata");
     e.target.reset();
   };
 

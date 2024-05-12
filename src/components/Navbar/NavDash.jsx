@@ -1,5 +1,6 @@
 import Input from "../Form/Input";
 import { useNavigate } from "react-router-dom";
+
 const NavDashboard = () => {
   const navigate = useNavigate();
 
@@ -12,17 +13,10 @@ const NavDashboard = () => {
   return (
     <nav className='flex w-full  fixed top-0 left-0 right-0 px-8 py-4 border-b-2 bg-slate-50 text-black z-40'>
       <ul className='flex justify-between items-center gap-5 w-full'>
-        <li className='text-dark-blue-100 text-xl font-semibold'>
+        <li
+          className='text-dark-blue-100 text-xl font-semibold cursor-pointer'
+          onClick={() => navigate("/beranda_user")}>
           CLINIK WITH BAHRAIN
-        </li>
-        <li className='flex items-center gap-5'>
-          <Input
-            type='text'
-            name='search'
-            placeholder='Search'
-            className='p-1 rounded px-2 w-[368px] border bg-gray-100'
-          />
-          <img src='../images/notif.png' />
         </li>
         <li className='flex items-center gap-2'>
           <img

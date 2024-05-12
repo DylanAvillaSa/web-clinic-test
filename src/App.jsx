@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/login";
 import HomePage from "./pages/home";
 import MedicPage from "./pages/medic";
-import Dashboard from "./pages/dashboard";
 import DoctorPage from "./pages/doctor";
 import DoctorBookingPage from "./pages/booking";
+import BiodataPage from "./pages/biodata";
+import DashboardPage from "./pages/dashboard";
 
 const App = () => {
   return (
@@ -24,10 +25,7 @@ const App = () => {
           path='/rekam_medis'
           element={<MedicPage />}
         />
-        <Route
-          path='/beranda_user'
-          element={<Dashboard />}
-        />
+
         <Route
           path='/daftar_doktor'
           element={<DoctorPage />}
@@ -35,6 +33,14 @@ const App = () => {
         <Route
           path='/doktor/:id'
           element={<DoctorBookingPage />}
+        />
+        <Route
+          path='/biodata'
+          element={<BiodataPage />}
+        />
+        <Route
+          path='/beranda_user'
+          element={<DashboardPage />}
         />
       </Routes>
     </BrowserRouter>

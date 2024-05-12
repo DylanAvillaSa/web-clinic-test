@@ -9,12 +9,12 @@ const CardContainer = () => {
         <Card
           img='../images/card1.png'
           title='Pasien Baru Bulan ini'
-          total={user.length}
+          total={user.length == 0 ? 0 : user.length}
         />
         <Card
           img='../images/card2.png'
           title='Pasien Terdaftar di Klinik'
-          total={user.length}
+          total={user.length == 0 ? 0 : user.length}
         />
       </div>
       <Card.CardVertical />

@@ -9,7 +9,7 @@ const ListDoctor = ({ id, img, name, description }) => {
 
   return (
     <div
-      className='w-[200px] shadow-md rounded-md flex flex-col justify-center items-center gap-2'
+      className='w-[200px] shadow-md rounded-md flex flex-col justify-between items-center gap-2'
       key={id}>
       <img
         src={img}

@@ -11,28 +11,12 @@ export const userSlice = createSlice({
         jadwal: "08:00 - 09:00",
         actions: false,
       },
-      {
-        id: 2,
-        nama: "VidiLukman",
-        gejala: "Demam",
-        jadwal: "10:00 - 11:00",
-        actions: false,
-      },
-      {
-        id: 3,
-        nama: "MandalaA",
-        gejala: "Sakit Hati",
-        jadwal: "13:00 - 13:30",
-        actions: false,
-      },
     ],
   },
 
   reducers: {
     getUser: (state, action) => {
-      if (action.type == "user") {
-        state.value += action.payload;
-      }
+      state.value.push(action.payload);
     },
   },
 });

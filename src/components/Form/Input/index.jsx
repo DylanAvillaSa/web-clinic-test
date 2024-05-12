@@ -7,6 +7,7 @@ const Input = ({ type, id, name, placeholder, className }) => {
       placeholder={placeholder}
       className={className}
       autoComplete='off'
+      required
     />
   );
 };

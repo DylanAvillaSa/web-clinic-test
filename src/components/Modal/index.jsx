@@ -1,32 +1,63 @@
 import { useEffect, useState } from "react";
 import Input from "../Form/Input";
 import { useNavigate } from "react-router-dom";
-const ModalQueue = ({ isTrue }) => {
+const ModalQueue = ({ isTrue, dataUser }) => {
   const navigate = useNavigate();
   useEffect(() => {
     document.getElementById("my_modal_3").showModal();
+    console.info(dataUser);
   }, []);
   return (
-    <div className='modal-action'>
-      {/* You can open the modal using document.getElementById('ID').showModal() method */}
+    <>
+      {dataUser && (
+        <div className='modal-action'>
+          <dialog
+            id='my_modal_3'
+            className='modal'>
+            <form
+              method='dialog'
+              className='modal-box  bg-white'>
+              <div className=' text-black  rounded-full w-[303px] h-[183px] p-5  flex justify-center items-center mx-auto flex-col'>
+                <p className='text-sm font-bold text-center'>
+                  Terimakasih {dataUser[0].name}. Reservasi Anda sudah kami
+                  terima
+                </p>
 
-      <dialog
-        id='my_modal_3'
-        className='modal'>
-        <form
-          method='dialog'
-          className='modal-box  bg-white'>
-          <div className=' text-black  rounded-full w-[303px] h-[183px] p-5  flex justify-center items-center mx-auto flex-col'>
-            <p className='text-xl font-bold text-center'>
-              Respon berhasil terkirim
-            </p>
-          </div>
-          <button className='bg-dark-blue  text-white flex justify-center items-center mx-auto mt-5 w-[180px] h-[58px] rounded-md'>
-            Submit
-          </button>
-        </form>
-      </dialog>
-    </div>
+                <div className='flex flex-col gap-2 mt-3'>
+                  <p>
+                    No antrian :{" "}
+                    <b>{dataUser.length === 0 ? 1 : dataUser.length}</b>
+                  </p>
+                </div>
+              </div>
+              <button
+                className='bg-dark-blue  text-white flex justify-center items-center mx-auto mt-5 w-[180px] h-[58px] rounded-md'
+                onClick={() => navigate("/daftar_doktor")}>
+                Submit
+              </button>
+            </form>
+          </dialog>
+        </div>
+      )}
+      <div className='modal-action'>
+        <dialog
+          id='my_modal_3'
+          className='modal'>
+          <form
+            method='dialog'
+            className='modal-box  bg-white'>
+            <div className=' text-black  rounded-full w-[303px] h-[183px] p-5  flex justify-center items-center mx-auto flex-col'>
+              <p className='text-xl font-bold text-center'>
+                Respon berhasil terkirim
+              </p>
+            </div>
+            <button className='bg-dark-blue  text-white flex justify-center items-center mx-auto mt-5 w-[180px] h-[58px] rounded-md'>
+              Submit
+            </button>
+          </form>
+        </dialog>
+      </div>
+    </>
   );
 };
 
@@ -92,18 +123,6 @@ const Modal = ({ response, setResponse }) => {
               />
             </div>
 
-            {/* <label
-              htmlFor='nik'
-              className='text-sm text-black'>
-              NIK
-            </label>
-            <Input
-              type='text'
-              name='nik'
-              placeholder='35101010101011010'
-              className='bg-gray-100 p-2 w-[375px] rounded-md'
-            /> */}
-
             <Input
               type='text'
               name='keluhan'
@@ -111,7 +130,7 @@ const Modal = ({ response, setResponse }) => {
               className='bg-gray-100 p-2 w-[375px] h-[124px] rounded-md placeholder:absolute placeholder:top-0'
             />
             <div className='modal-action'>
-              <button className='absolute bottom-[33px] rounded-md right-[27px] bg-dark-blue text-white w-[175px] h-[58px]'>
+              <button className='absolute bottom-[23px] rounded-md right-[27px] bg-dark-blue text-white w-[175px] h-[58px]'>
                 Create RM
               </button>
             </div>
@@ -169,5 +188,7 @@ const Modal = ({ response, setResponse }) => {
     </div>
   );
 };
+
+Modal.ModalQueue = ModalQueue;
 
 export default Modal;

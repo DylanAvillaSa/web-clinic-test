@@ -50,10 +50,12 @@ const CardVertical = () => {
       <h1>Total Pasien di Klinik</h1>
       <div
         className='radial-progress text-dark-blue-100 w-[194px] h-[194px] duration-300'
-        style={{ "--value": totalPercent.length }}
+        style={{
+          "--value": totalPercent.length == 0 ? 0 : totalPercent.length,
+        }}
         role='progressbar'>
         <span className='bg-light-blue bg-dark-blue-100 text-white text-2xl w-[86px] h-[86px] rounded-full flex justify-center items-center'>
-          {totalPercent.length}
+          {totalPercent.length == 0 ? 0 : totalPercent.length}
         </span>
       </div>
 

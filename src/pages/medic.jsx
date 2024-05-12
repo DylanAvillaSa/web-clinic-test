@@ -46,7 +46,7 @@ const MedicPage = () => {
                   <th>No</th>
                   <th>Nama Pasien</th>
                   <th>Tindakan Medis</th>
-                  <th>Riwayat Kunjungan</th>
+                  <th>Waktu Penanganan</th>
                   <th>Catatan Dokter</th>
                 </tr>
               </thead>
